@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Terran's Security Buildings (Continued)</name>
+  <packageId>Mlie.TerransSecurityBuildings</packageId>
+  <author>Tr.Vi</author>
+  <url>https://github.com/emipa606/TerransSecurityBuildings</url>
+  <supportedVersions>
+    <li>1.2</li>
+    <li>1.3</li>
+    <li>1.4</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>kentington.saveourship2</li>
+    <li>smashphil.srtsexpanded</li>
+  </loadAfter>
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+Update of Tr.Vis mod https://steamcommunity.com/sharedfiles/filedetails/?id=2509993687
+
+[img]https://i.imgur.com/pufA0kM.png[/img]
+
+[table]
+    [tr][td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td] [td][url=https://github.com/emipa606/TerransSecurityBuildings][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/Be8E2qJ.png[/img][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
+[h1][b]TERRAN’S SECURITY BUILDINGS[/b][/h1]
+
+A simple mod added three types of security buildings from StarCraft II into Rimworld.
+
+[h1][b]New Resource: [/b][/h1]
+Chem-Gas (or you can call it Vespene Gas)
+Made in Biofuel Refinery
+Use Uranium and Chemfuel to produce
+
+[h1][b]New Buildings: [/b][/h1]
+Auto-turret 
+An airborne automatic turret for fixed-point defense
+Need Chem-Gas to work
+Can provide 160w power
+Explode when receiving serious damage
+
+Bunker
+	Fortifications that can accommodate four combatants. Full-angle firing holes allow soldiers to fire at the enemy outside from inside the bunker with ease.
+	Source Code comes from: https://steamcommunity.com/sharedfiles/filedetails/?id=2235810677&amp;amp;searchtext=bunker
+	Can Upgrade (WIP. Because I’m a noob in C#, I’ll try my best)
+
+Known issue for 1.2: 
+
+when you using bunker, Shield Generators by Frontier Developments and Alpha Animal these three together, your pawn will not shoot in Bunker. This is caused by MVCF, a part for Vanilla Expanded Framework. I have no ability to fix this bug, sorry :(
+
+For version 1.3: There are currently no compatibility issues found in version 1.3
+
+[img]https://steamuserimages-a.akamaihd.net/ugc/1761450961881198396/AB517F745BE0F7473C176233B46EC2B1310E84CF/[/img]
+
+Planetary Fortress
+	A strong defensive fortress equipped with the "Twin Ibiks Cannon.
+Need Chem-Gas to work
+Can provide 2000w power
+Can be used as 2000w battery
+Provide a mood buff
+Explode when receiving serious damage
+
+All Turrets can set forced targets manually to make sure you don't waste your firepower
+[img]https://steamuserimages-a.akamaihd.net/ugc/1761451277162968038/DB35B1C7E7B685A643D33A6B0D64146C1AAEFD8F/[/img]
+
+Settings:
+You can set your buildings' HP from 1 to 99999 based on your modlist and game experience
+[img]https://steamuserimages-a.akamaihd.net/ugc/1761451277162982733/2B96DBF1DBD91AFECD1DD8623F27D8A5F357D8E7/[/img]
+
+[h1][b]Expanded mods:[/b][/h1]
+This mod needs Harmony. They are just turrets.
+But I make two patches for it.
+
+[b]Using with S.R.T.S: [/b]
+Auto-Turret and Planetary-Fortress can be used as a SRTS ship. You can send them to enemy’s base as a kind of weapon.
+[img] https://steamuserimages-a.akamaihd.net/ugc/1761450961880027674/47EEEEE8E7B4BA4FC756A0319B60D8FCC2A0A081/[/img]
+
+[b]Using with SOS2: [/b]
+Auto-Turret and Planetary-Fortress can use the HOVER function. HOWEVER, their flying ability is based on SRTS. So, remember, SRTS ship will cause some bugs in SOS2’s World-Components.	
+[img]https://steamuserimages-a.akamaihd.net/ugc/1761450961880031242/E2DCA4CB03FB2018B2486BC9E7A708099E56C610/[/img]
+
+[h1][b]Incompatible with CE[/b][/h1]
+
+Language: 
+[1.2] [Sub-MOD] Terran's Security Buildings add Japanese Translation (by @Proxyer)
+https://steamcommunity.com/sharedfiles/filedetails/?id=2511978239
+
+[h1][b] Credits:[/b][/h1]
+XML: Tr.Vi
+Art: Zeo
+Source Code: Akreedz (Ra2Bunker[1.0])
+Art Reference: Star Craft II
+Sound: Star Craft II
+
+[img]https://i.imgur.com/PwoNOj4.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
+[/list]</description>
+</ModMetaData>
