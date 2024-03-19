@@ -24,9 +24,9 @@ public class Proj_PlanetaryFortress : Projectile
         var thingDef2 = def;
         GenExplosion.DoExplosion(position, map, explosionRadius, bomb, thing, damageAmount, armorPenetration,
             soundExplode, thingDef, thingDef2, intendedTarget.Thing);
-        var cellRect = CellRect.CenteredOn(Position, 5);
+        var cellRect = CellRect.CenteredOn(Position, ExtraExplosionRadius);
         cellRect.ClipInsideMap(map);
-        for (var i = 0; i < 1; i++)
+        for (var i = 0; i < ExtraExplosionCount; i++)
         {
             var randomCell = cellRect.RandomCell;
             Explode(randomCell, map, 5f);

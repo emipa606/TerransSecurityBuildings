@@ -208,7 +208,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
             ResetForcedTarget();
         }
 
-        if (Active && (mannableComp == null || mannableComp.MannedNow) && !stunner.Stunned && Spawned)
+        if (Active && (mannableComp == null || mannableComp.MannedNow) && !IsStunned && Spawned)
         {
             GunCompEq.verbTracker.VerbsTick();
             if (AttackVerb.state == VerbState.Bursting)
@@ -436,7 +436,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         return stringBuilder.ToString().TrimEndNewlines();
     }
 
-    public override void Draw()
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
     {
         var drawOffset = Vector3.zero;
         var angleOffset = 0f;
@@ -446,8 +446,8 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
                 out angleOffset, top.CurRotation);
         }
 
-        top.DrawTurret(drawOffset, angleOffset);
-        base.Draw();
+        top.DrawTurret(drawLoc, drawOffset, angleOffset);
+        base.DrawAt(drawLoc, flip);
     }
 
     public override void DrawExtraSelectionOverlays()
