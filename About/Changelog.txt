@@ -1,5 +1,8 @@
 # Changelog for TerransSecurityBuildings
 
+1.5.1 - Planetary fortress now shoots working projectiles
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 

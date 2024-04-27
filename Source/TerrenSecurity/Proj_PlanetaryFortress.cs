@@ -9,26 +9,16 @@ public class Proj_PlanetaryFortress : Projectile
 
     private const int ExtraExplosionRadius = 5;
 
-    protected virtual void Impact(Thing hitThing)
+    protected override void Impact(Thing hitThing, bool blockedByShield = false)
     {
         var map = Map;
-        base.Impact(hitThing);
-        var position = Position;
-        var explosionRadius = def.projectile.explosionRadius;
-        var bomb = DamageDefOf.Bomb;
-        var thing = launcher;
-        var damageAmount = base.DamageAmount;
-        var armorPenetration = base.ArmorPenetration;
-        var soundExplode = def.projectile.soundExplode;
-        var thingDef = equipmentDef;
-        var thingDef2 = def;
-        GenExplosion.DoExplosion(position, map, explosionRadius, bomb, thing, damageAmount, armorPenetration,
-            soundExplode, thingDef, thingDef2, intendedTarget.Thing);
-        var cellRect = CellRect.CenteredOn(Position, ExtraExplosionRadius);
-        cellRect.ClipInsideMap(map);
+        base.Impact(hitThing, blockedByShield);
+        GenExplosion.DoExplosion(Position, map, def.projectile.explosionRadius, DamageDefOf.Bomb, launcher,
+            base.DamageAmount, base.ArmorPenetration,
+            def.projectile.soundExplode, equipmentDef, def, intendedTarget.Thing);
         for (var i = 0; i < ExtraExplosionCount; i++)
         {
-            var randomCell = cellRect.RandomCell;
+            var randomCell = CellRect.CenteredOn(Position, ExtraExplosionRadius).RandomCell.ClampInsideMap(map);
             Explode(randomCell, map, 5f);
         }
     }
