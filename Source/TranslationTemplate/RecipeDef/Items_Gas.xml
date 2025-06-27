@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Refine 100U Chem-Gas -->
+  <MakeChemGas.label>Refine 100U Chem-Gas</MakeChemGas.label>
+  <!-- EN: Refine 100U Chem-Gas -->
+  <MakeChemGas.description>Refine 100U Chem-Gas</MakeChemGas.description>
+  <!-- EN: Refining -->
+  <MakeChemGas.jobString>Refining</MakeChemGas.jobString>
+</LanguageData>

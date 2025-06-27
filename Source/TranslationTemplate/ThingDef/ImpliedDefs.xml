@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Auto-Turret (blueprint) -->
+  <Blueprint_AutoTurret.label>Auto-Turret (blueprint)</Blueprint_AutoTurret.label>
+  <!-- EN: Auto-Turret (blueprint) -->
+  <Blueprint_Install_AutoTurret.label>Auto-Turret (blueprint)</Blueprint_Install_AutoTurret.label>
+  <!-- EN: Planetary Fortress (blueprint) -->
+  <Blueprint_Install_PlanetaryFortress.label>Planetary Fortress (blueprint)</Blueprint_Install_PlanetaryFortress.label>
+  <!-- EN: Planetary Fortress (blueprint) -->
+  <Blueprint_PlanetaryFortress.label>Planetary Fortress (blueprint)</Blueprint_PlanetaryFortress.label>
+  <!-- EN: Bunker (blueprint) -->
+  <Blueprint_TerranBunker.label>Bunker (blueprint)</Blueprint_TerranBunker.label>
+  <!-- EN: Auto-Turret (building) -->
+  <Frame_AutoTurret.label>Auto-Turret (building)</Frame_AutoTurret.label>
+  <!-- EN: An airborne automatic turret for fixed-point defense, it can be deployed repeatedly after installing the SRTS engine. This turret itself is fragile and needs to be used flexibly. -->
+  <Frame_AutoTurret.description>An airborne automatic turret for fixed-point defense, it can be deployed repeatedly after installing the SRTS engine. This turret itself is fragile and needs to be used flexibly.</Frame_AutoTurret.description>
+  <!-- EN: Planetary Fortress (building) -->
+  <Frame_PlanetaryFortress.label>Planetary Fortress (building)</Frame_PlanetaryFortress.label>
+  <!-- EN: A strong defensive fortress equipped with the "Twin Ibiks Cannon. Can be redeployed after installation of SRTS engine. All battery capacity will be emptied when using SRTS engine for safety reasons. -->
+  <Frame_PlanetaryFortress.description>A strong defensive fortress equipped with the "Twin Ibiks Cannon. Can be redeployed after installation of SRTS engine. All battery capacity will be emptied when using SRTS engine for safety reasons.</Frame_PlanetaryFortress.description>
+  <!-- EN: Bunker (building) -->
+  <Frame_TerranBunker.label>Bunker (building)</Frame_TerranBunker.label>
+  <!-- EN: Fortifications that can accommodate four combatants. Full-angle firing holes allow soldiers to fire at the enemy outside from inside the bunker with ease. -->
+  <Frame_TerranBunker.description>Fortifications that can accommodate four combatants. Full-angle firing holes allow soldiers to fire at the enemy outside from inside the bunker with ease.</Frame_TerranBunker.description>
+</LanguageData>

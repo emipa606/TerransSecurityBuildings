@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Twin Ibiks Cannon -->
+  <PlanetaryFortress_Turret_Top.label>Twin Ibiks Cannon</PlanetaryFortress_Turret_Top.label>
+  <!-- EN: Twin Ibiks Cannon -->
+  <PlanetaryFortress_Turret_Top.description>Twin Ibiks Cannon</PlanetaryFortress_Turret_Top.description>
+  <!-- EN: Twin Ibiks Cannon -->
+  <PlanetaryFortress_Turret_Top.verbs.Verb_Shoot.label>Twin Ibiks Cannon</PlanetaryFortress_Turret_Top.verbs.Verb_Shoot.label>
+  <!-- EN: Ibiks Cannon -->
+  <PlanetaryFortress_Turret_Top_Bomb.label>Ibiks Cannon</PlanetaryFortress_Turret_Top_Bomb.label>
+</LanguageData>

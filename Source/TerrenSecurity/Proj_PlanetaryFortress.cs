@@ -19,11 +19,11 @@ public class Proj_PlanetaryFortress : Projectile
         for (var i = 0; i < ExtraExplosionCount; i++)
         {
             var randomCell = CellRect.CenteredOn(Position, ExtraExplosionRadius).RandomCell.ClampInsideMap(map);
-            Explode(randomCell, map, 5f);
+            explode(randomCell, map, 5f);
         }
     }
 
-    protected void Explode(IntVec3 pos, Map map, float radius)
+    private void explode(IntVec3 pos, Map map, float radius)
     {
         GenExplosion.DoExplosion(pos, map, radius, DamageDefOf.Bomb, launcher, base.DamageAmount, base.ArmorPenetration,
             null, equipmentDef, def, intendedTarget.Thing);

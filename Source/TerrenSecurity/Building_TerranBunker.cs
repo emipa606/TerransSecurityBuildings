@@ -13,7 +13,7 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
     public readonly int maxCount = 4;
     public int direc;
 
-    protected ThingOwner<Pawn> innerContainer;
+    private ThingOwner<Pawn> innerContainer;
 
     public Building_TerranBunker()
     {
@@ -41,13 +41,7 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
         return innerContainer;
     }
 
-    public override void TickRare()
-    {
-        base.TickRare();
-        innerContainer.ThingOwnerTickRare();
-    }
-
-    public override void Tick()
+    protected override void Tick()
     {
         if (innerContainer.Count < 1)
         {
@@ -55,7 +49,6 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
         }
 
         base.Tick();
-        innerContainer.ThingOwnerTick();
     }
 
     public virtual void Open()
@@ -73,7 +66,7 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
     }
 
-    public virtual bool ClaimableBy(Faction fac)
+    public override AcceptanceReport ClaimableBy(Faction fac)
     {
         if (!innerContainer.Any)
         {
@@ -118,7 +111,7 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
     public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
     {
         if (innerContainer.Count > 0 &&
-            (mode == DestroyMode.KillFinalizeLeavingsOnly || mode == DestroyMode.KillFinalize))
+            mode is DestroyMode.KillFinalizeLeavingsOnly or DestroyMode.KillFinalize)
         {
             EjectAllContents();
         }
@@ -146,8 +139,9 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
                (innerContainer.Count == maxCount ? "(Full)" : "");
     }
 
-    public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(List<Pawn> selPawns)
+    public override IEnumerable<FloatMenuOption> GetMultiSelectFloatMenuOptions(IEnumerable<Pawn> enumerable)
     {
+        var selPawns = enumerable as Pawn[] ?? enumerable.ToArray();
         foreach (var multiSelectFloatMenuOption in base.GetMultiSelectFloatMenuOptions(selPawns))
         {
             yield return multiSelectFloatMenuOption;
@@ -176,11 +170,11 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
 
         void jobAction()
         {
-            MultiEnter(pawnList);
+            multiEnter(pawnList);
         }
     }
 
-    private void MultiEnter(List<Pawn> pawnsToEnter)
+    private void multiEnter(List<Pawn> pawnsToEnter)
     {
         var named = DefDatabase<JobDef>.GetNamed("EnterTerranBunker");
         foreach (var item in pawnsToEnter)
@@ -226,7 +220,7 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
         {
             var eject = new Command_Action
             {
-                action = SelectColonist,
+                action = selectColonist,
                 defaultLabel = "ExitBunker".Translate(),
                 defaultDesc = "ExitBunkerDesc".Translate()
             };
@@ -260,7 +254,7 @@ public class Building_TerranBunker : Building_TurretGun, IThingHolder
         };
     }
 
-    private void SelectColonist()
+    private void selectColonist()
     {
         var source = new List<FloatMenuOption>();
         if (source == null)

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Auto-Turret -->
+  <Research_AutoTurret.label>Auto-Turret</Research_AutoTurret.label>
+  <!-- EN: Investigate a new type of automatic turret which can repel the enemy with intensive firepower. The SRTS Engine can be installed for redeployment. -->
+  <Research_AutoTurret.description>Investigate a new type of automatic turret which can repel the enemy with intensive firepower. The SRTS Engine can be installed for redeployment.</Research_AutoTurret.description>
+  <!-- EN: Chem-Gas Refining -->
+  <Research_ChemGas.label>Chem-Gas Refining</Research_ChemGas.label>
+  <!-- EN: Finding a way to refine an advance energy - ChemGas. Researchers seem to hear a female voice:"Insufficient Vespene Gas." -->
+  <Research_ChemGas.description>Finding a way to refine an advance energy - ChemGas. Researchers seem to hear a female voice:"Insufficient Vespene Gas."</Research_ChemGas.description>
+  <!-- EN: Planetary Fortress -->
+  <Research_PlanetaryFortress.label>Planetary Fortress</Research_PlanetaryFortress.label>
+  <!-- EN: Investigate how to build a Planetary Fortress, a heavy and deadly front-line fortress with heavy cannons. The SRTS Engine can be installed for redeployment. -->
+  <Research_PlanetaryFortress.description>Investigate how to build a Planetary Fortress, a heavy and deadly front-line fortress with heavy cannons. The SRTS Engine can be installed for redeployment.</Research_PlanetaryFortress.description>
+  <!-- EN: Strengthen Fortification -->
+  <Research_TBD_Bunker.label>Strengthen Fortification</Research_TBD_Bunker.label>
+  <!-- EN: Investigate how to build a sturdy defensive building. Unlock Bunker that can accommodate up to four combat units. -->
+  <Research_TBD_Bunker.description>Investigate how to build a sturdy defensive building. Unlock Bunker that can accommodate up to four combat units.</Research_TBD_Bunker.description>
+</LanguageData>

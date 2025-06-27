@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: 12mm Gauss Gun -->
+  <AutoTurret_Turret_Top.label>12mm Gauss Gun</AutoTurret_Turret_Top.label>
+  <!-- EN: 12mm Gauss Gun -->
+  <AutoTurret_Turret_Top.description>12mm Gauss Gun</AutoTurret_Turret_Top.description>
+  <!-- EN: 12mm Gauss Gun -->
+  <AutoTurret_Turret_Top.verbs.Verb_Shoot.label>12mm Gauss Gun</AutoTurret_Turret_Top.verbs.Verb_Shoot.label>
+  <!-- EN: 12mm Guass Bullet -->
+  <Bullet_AutoTurret.label>12mm Guass Bullet</Bullet_AutoTurret.label>
+</LanguageData>

@@ -18,37 +18,37 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
     public static Material ForcedTargetLineMat =
         MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, new Color(1f, 0.5f, 0.5f));
 
-    protected readonly TurretTop top;
+    private readonly TurretTop top;
 
-    protected int burstCooldownTicksLeft;
+    private int burstCooldownTicksLeft;
 
-    protected int burstWarmupTicksLeft;
+    private int burstWarmupTicksLeft;
 
-    protected LocalTargetInfo currentTargetInt = LocalTargetInfo.Invalid;
+    private LocalTargetInfo currentTargetInt = LocalTargetInfo.Invalid;
 
-    protected CompCanBeDormant dormantComp;
+    private CompCanBeDormant dormantComp;
 
-    public Thing gun;
+    private Thing gun;
 
     private bool holdFire;
 
-    protected CompInitiatable initiatableComp;
+    private CompInitiatable initiatableComp;
 
-    protected CompMannable mannableComp;
+    private CompMannable mannableComp;
 
-    protected CompPowerTrader powerComp;
+    private CompPowerTrader powerComp;
 
-    protected Effecter progressBarEffecter;
+    private Effecter progressBarEffecter;
 
     public Building_CanSetForcedTargetTurret()
     {
         top = new TurretTop(this);
     }
 
-    public bool Active => (powerComp == null || powerComp.PowerOn) && (dormantComp == null || dormantComp.Awake) &&
-                          (initiatableComp == null || initiatableComp.Initiated);
+    private bool Active => (powerComp == null || powerComp.PowerOn) && (dormantComp == null || dormantComp.Awake) &&
+                           (initiatableComp == null || initiatableComp.Initiated);
 
-    public CompEquippable GunCompEq => gun.TryGetComp<CompEquippable>();
+    private CompEquippable GunCompEq => gun.TryGetComp<CompEquippable>();
 
     public override LocalTargetInfo CurrentTarget => currentTargetInt;
 
@@ -108,13 +108,13 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
     public override void PostMake()
     {
         base.PostMake();
-        MakeGun();
+        makeGun();
     }
 
     public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
     {
         base.DeSpawn(mode);
-        ResetCurrentTarget();
+        resetCurrentTarget();
         progressBarEffecter?.Cleanup();
     }
 
@@ -129,13 +129,13 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         BackCompatibility.PostExposeData(this);
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {
-            UpdateGunVerbs();
+            updateGunVerbs();
         }
     }
 
-    public virtual bool ClaimableBy(Faction by)
+    public override AcceptanceReport ClaimableBy(Faction by)
     {
-        return ((Building)this).ClaimableBy(by) && (mannableComp == null || mannableComp.ManningPawn == null) &&
+        return base.ClaimableBy(by) && mannableComp?.ManningPawn == null &&
                (!Active || mannableComp != null) &&
                ((dormantComp == null || dormantComp.Awake) && (initiatableComp == null || initiatableComp.Initiated) ||
                 powerComp is { PowerOn: false });
@@ -147,7 +147,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         {
             if (forcedTarget.IsValid)
             {
-                ResetForcedTarget();
+                resetForcedTarget();
             }
 
             return;
@@ -170,7 +170,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
             forcedTarget = targ;
             if (burstCooldownTicksLeft <= 0)
             {
-                TryStartShootSomething(false);
+                tryStartShootSomething(false);
             }
         }
 
@@ -181,7 +181,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         }
     }
 
-    public override void Tick()
+    protected override void Tick()
     {
         base.Tick();
         if (CanExtractShell && MannedByColonist)
@@ -189,13 +189,13 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
             var compChangeableProjectile = gun.TryGetComp<CompChangeableProjectile>();
             if (!compChangeableProjectile.allowedShellsSettings.AllowedToAccept(compChangeableProjectile.LoadedShell))
             {
-                ExtractShell();
+                extractShell();
             }
         }
 
         if (forcedTarget.IsValid && !CanSetForcedTarget)
         {
-            ResetForcedTarget();
+            resetForcedTarget();
         }
 
         if (!CanToggleHoldFire)
@@ -205,7 +205,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
 
         if (forcedTarget.ThingDestroyed)
         {
-            ResetForcedTarget();
+            resetForcedTarget();
         }
 
         if (Active && (mannableComp == null || mannableComp.MannedNow) && !IsStunned && Spawned)
@@ -221,7 +221,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
                 burstWarmupTicksLeft--;
                 if (burstWarmupTicksLeft == 0)
                 {
-                    BeginBurst();
+                    beginBurst();
                 }
             }
             else
@@ -231,22 +231,19 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
                     burstCooldownTicksLeft--;
                     if (IsMortar)
                     {
-                        if (progressBarEffecter == null)
-                        {
-                            progressBarEffecter = EffecterDefOf.ProgressBar.Spawn();
-                        }
+                        progressBarEffecter ??= EffecterDefOf.ProgressBar.Spawn();
 
                         progressBarEffecter.EffectTick(this, TargetInfo.Invalid);
                         var mote = ((SubEffecter_ProgressBar)progressBarEffecter.children[0]).mote;
                         mote.progress = 1f - (Math.Max(burstCooldownTicksLeft, 0) /
-                                              (float)BurstCooldownTime().SecondsToTicks());
+                                              (float)burstCooldownTime().SecondsToTicks());
                         mote.offsetZ = -0.8f;
                     }
                 }
 
                 if (burstCooldownTicksLeft <= 0 && this.IsHashIntervalTick(10))
                 {
-                    TryStartShootSomething(true);
+                    tryStartShootSomething(true);
                 }
             }
 
@@ -254,11 +251,11 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         }
         else
         {
-            ResetCurrentTarget();
+            resetCurrentTarget();
         }
     }
 
-    protected void TryStartShootSomething(bool canBeginBurstImmediately)
+    private void tryStartShootSomething(bool canBeginBurstImmediately)
     {
         if (progressBarEffecter != null)
         {
@@ -269,12 +266,12 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         if (!Spawned || holdFire && CanToggleHoldFire ||
             AttackVerb.ProjectileFliesOverhead() && Map.roofGrid.Roofed(Position) || !AttackVerb.Available())
         {
-            ResetCurrentTarget();
+            resetCurrentTarget();
             return;
         }
 
         var isValid = currentTargetInt.IsValid;
-        currentTargetInt = forcedTarget.IsValid ? forcedTarget : TryFindNewTarget();
+        currentTargetInt = forcedTarget.IsValid ? forcedTarget : tryFindNewTarget();
 
         if (!isValid && currentTargetInt.IsValid)
         {
@@ -283,7 +280,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
 
         if (!currentTargetInt.IsValid)
         {
-            ResetCurrentTarget();
+            resetCurrentTarget();
         }
         else if (def.building.turretBurstWarmupTime.Average > 0f)
         {
@@ -291,7 +288,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         }
         else if (canBeginBurstImmediately)
         {
-            BeginBurst();
+            beginBurst();
         }
         else
         {
@@ -299,9 +296,9 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         }
     }
 
-    protected LocalTargetInfo TryFindNewTarget()
+    private LocalTargetInfo tryFindNewTarget()
     {
-        var attackTargetSearcher = TargSearcher();
+        var attackTargetSearcher = targSearcher();
         var faction = attackTargetSearcher.Thing.Faction;
         var range = AttackVerb.verbProps.range;
         if (Rand.Value < 0.5f && AttackVerb.ProjectileFliesOverhead() && faction.HostileTo(Faction.OfPlayer) && Map
@@ -333,10 +330,10 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         }
 
         return (Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(attackTargetSearcher, losToAll,
-            IsValidTarget);
+            isValidTarget);
     }
 
-    private IAttackTargetSearcher TargSearcher()
+    private IAttackTargetSearcher targSearcher()
     {
         if (mannableComp is { MannedNow: true })
         {
@@ -346,7 +343,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         return this;
     }
 
-    private bool IsValidTarget(Thing t)
+    private bool isValidTarget(Thing t)
     {
         if (t is not Pawn pawn)
         {
@@ -375,18 +372,18 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         return !pawn.RaceProps.Animal || pawn.Faction != Faction.OfPlayer;
     }
 
-    protected void BeginBurst()
+    private void beginBurst()
     {
         AttackVerb.TryStartCastOn(CurrentTarget);
         OnAttackedTarget(CurrentTarget);
     }
 
-    protected void BurstComplete()
+    private void burstComplete()
     {
-        burstCooldownTicksLeft = BurstCooldownTime().SecondsToTicks();
+        burstCooldownTicksLeft = burstCooldownTime().SecondsToTicks();
     }
 
-    protected float BurstCooldownTime()
+    private float burstCooldownTime()
     {
         return def.building.turretBurstCooldownTime >= 0f
             ? def.building.turretBurstCooldownTime
@@ -411,7 +408,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
         {
             stringBuilder.AppendLine("CannotFire".Translate() + ": " + "Roofed".Translate().CapitalizeFirst());
         }
-        else if (Spawned && burstCooldownTicksLeft > 0 && BurstCooldownTime() > 5f)
+        else if (Spawned && burstCooldownTicksLeft > 0 && burstCooldownTime() > 5f)
         {
             stringBuilder.AppendLine("CanFireIn".Translate() + ": " +
                                      burstCooldownTicksLeft.ToStringSecondsFromTicks());
@@ -500,7 +497,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
                 iconAngle = compChangeableProjectile.LoadedShell.uiIconAngle,
                 iconOffset = compChangeableProjectile.LoadedShell.uiIconOffset,
                 iconDrawScale = GenUI.IconDrawScale(compChangeableProjectile.LoadedShell),
-                action = ExtractShell
+                action = extractShell
             };
         }
 
@@ -542,7 +539,7 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
                 icon = ContentFinder<Texture2D>.Get("UI/Commands/Halt"),
                 action = delegate
                 {
-                    ResetForcedTarget();
+                    resetForcedTarget();
                     SoundDefOf.Tick_Low.PlayOneShotOnCamera();
                 }
             };
@@ -571,48 +568,48 @@ public class Building_CanSetForcedTargetTurret : Building_Turret
                 holdFire = !holdFire;
                 if (holdFire)
                 {
-                    ResetForcedTarget();
+                    resetForcedTarget();
                 }
             },
             isActive = () => holdFire
         };
     }
 
-    private void ExtractShell()
+    private void extractShell()
     {
         GenPlace.TryPlaceThing(gun.TryGetComp<CompChangeableProjectile>().RemoveShell(), Position, Map,
             ThingPlaceMode.Near);
     }
 
-    private void ResetForcedTarget()
+    private void resetForcedTarget()
     {
         forcedTarget = LocalTargetInfo.Invalid;
         burstWarmupTicksLeft = 0;
         if (burstCooldownTicksLeft <= 0)
         {
-            TryStartShootSomething(false);
+            tryStartShootSomething(false);
         }
     }
 
-    private void ResetCurrentTarget()
+    private void resetCurrentTarget()
     {
         currentTargetInt = LocalTargetInfo.Invalid;
         burstWarmupTicksLeft = 0;
     }
 
-    public void MakeGun()
+    private void makeGun()
     {
         gun = ThingMaker.MakeThing(def.building.turretGunDef);
-        UpdateGunVerbs();
+        updateGunVerbs();
     }
 
-    private void UpdateGunVerbs()
+    private void updateGunVerbs()
     {
         var allVerbs = gun.TryGetComp<CompEquippable>().AllVerbs;
         foreach (var verb in allVerbs)
         {
             verb.caster = this;
-            verb.castCompleteCallback = BurstComplete;
+            verb.castCompleteCallback = burstComplete;
         }
     }
 }

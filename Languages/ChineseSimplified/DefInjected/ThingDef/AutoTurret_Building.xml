@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <AutoTurret.label>自动炮台</AutoTurret.label>
   <AutoTurret.description>一种用于定点防御的机载自动炮塔，安装SRTS引擎后可以重复部署。炮台本身比较脆弱，需要灵活使用。</AutoTurret.description>

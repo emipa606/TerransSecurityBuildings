@@ -5,7 +5,7 @@ namespace TerrenSecurity;
 
 internal class Patches
 {
-    public static void CheckOrUpdateGameOver_Postfix(GameEnder __instance)
+    public static void GameEnder_CheckOrUpdateGameOver(GameEnder __instance)
     {
         var maps = Find.Maps;
         foreach (var item in maps)

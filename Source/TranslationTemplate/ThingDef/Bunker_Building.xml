@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Bunker -->
+  <TerranBunker.label>Bunker</TerranBunker.label>
+  <!-- EN: Fortifications that can accommodate four combatants. Full-angle firing holes allow soldiers to fire at the enemy outside from inside the bunker with ease. -->
+  <TerranBunker.description>Fortifications that can accommodate four combatants. Full-angle firing holes allow soldiers to fire at the enemy outside from inside the bunker with ease.</TerranBunker.description>
+  <!-- EN: Firing Holes -->
+  <Turret_TerranBunker.label>Firing Holes</Turret_TerranBunker.label>
+  <!-- EN: Firing Holes -->
+  <Turret_TerranBunker.verbs.Verb_TerranBunker.label>Firing Holes</Turret_TerranBunker.verbs.Verb_TerranBunker.label>
+</LanguageData>

@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 4000473989
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f4c33a5677929cc8210efaf393addaf9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ce3b6d18a872ca8039cd5eb3c4fb7ef5
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: f4c33a5677929cc8210efaf393addaf9
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Data/Mlie.TerransSecurityBuildings/Sounds/Turrets/Shrike.ogg
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/Hover/AutoTurretHoverLeaving.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/Turret/AutoTurret_Turret_Top.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/Hover/AutoTurretHoverIncoming.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Sounds/Turrets/IbiksCannonExplode.ogg
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHoverPack.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/Turret/PlanetaryFortress_Turret_Top.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHoverLeaving.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHover_south.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/Bunker/Bunker.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/Hover/AutoTurretHoverPack.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/AutoTurret.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/Refinery/ChemGasRefinery.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHover_north.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/PlanetaryFortress.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Projectile/PlanetaryFortress_Turret_Top_Bomb.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Sounds/Turrets/IbiksCannonAttack.ogg
+- Assets/Data/Mlie.TerransSecurityBuildings/Sounds/Turrets/MultipleBulletAttack.ogg
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/Hover/AutoTurretHover_north.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Resource/ChemGas.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/Turret/Invis.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHoverIncoming.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/AutoTurretUI.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/Bunker/EmptyBaby.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHover_east.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/Hover/AutoTurretHover_south.png
+- Assets/Data/Mlie.TerransSecurityBuildings/Textures/Things/Building/AutoTurret/Hover/AutoTurretHover
+  _east.png
+Dependencies: []

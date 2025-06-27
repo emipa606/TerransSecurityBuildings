@@ -17,10 +17,7 @@ public class Verb_TerranBunker : Verb_Shoot
 
     public void ResetVerb()
     {
-        if (bunker == null)
-        {
-            bunker = (Building_TerranBunker)caster;
-        }
+        bunker ??= (Building_TerranBunker)caster;
 
         foreach (var item in bunker.GetInner().InnerListForReading)
         {
@@ -34,10 +31,7 @@ public class Verb_TerranBunker : Verb_Shoot
     protected override bool TryCastShot()
     {
         verbss = [];
-        if (bunker == null)
-        {
-            bunker = (Building_TerranBunker)caster;
-        }
+        bunker ??= (Building_TerranBunker)caster;
 
         foreach (var item in bunker.GetInner().InnerListForReading)
         {

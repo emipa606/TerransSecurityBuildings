@@ -7,8 +7,8 @@ namespace TerrenSecurity;
 
 public class ModSetting : Mod
 {
-    public static ModSetting mod;
-    public readonly SettingIndex settings;
+    private static ModSetting mod;
+    private readonly SettingIndex settings;
 
     public ModSetting(ModContentPack con)
         : base(con)
@@ -24,26 +24,26 @@ public class ModSetting : Mod
 
     public override void DoSettingsWindowContents(Rect inRect)
     {
-        var listing_Standard = new Listing_Standard();
-        listing_Standard.Begin(inRect);
-        listing_Standard.Settings_IntegerBox("BunkerHPLabel".Translate(), ref mod.settings.BunkerHP, 500f, 24f, 1,
+        var listingStandard = new Listing_Standard();
+        listingStandard.Begin(inRect);
+        listingStandard.Settings_IntegerBox("BunkerHPLabel".Translate(), ref mod.settings.BunkerHP, 500f, 24f, 1,
             999999);
-        listing_Standard.Settings_IntegerBox("AutoTurretHPLabel".Translate(), ref mod.settings.AutoTurretHP, 500f, 24f,
+        listingStandard.Settings_IntegerBox("AutoTurretHPLabel".Translate(), ref mod.settings.AutoTurretHP, 500f, 24f,
             1, 999999);
-        listing_Standard.Settings_IntegerBox("PlanetaryFortressHPLabel".Translate(),
+        listingStandard.Settings_IntegerBox("PlanetaryFortressHPLabel".Translate(),
             ref mod.settings.PlanetaryFortressHP, 500f, 24f, 1, 999999);
         Widgets.Label(new Rect(0f, 144f, 600f, 200f), "TipsLabel".Translate());
-        listing_Standard.End();
+        listingStandard.End();
         base.DoSettingsWindowContents(inRect);
     }
 
     public override void WriteSettings()
     {
-        UpdateChanges();
+        updateChanges();
         base.WriteSettings();
     }
 
-    public static void UpdateChanges()
+    private static void updateChanges()
     {
         DefDatabase<ThingDef>.GetNamed("TerranBunker").statBases
             .First(statBase => statBase.stat == StatDefOf.MaxHitPoints).value = mod.settings.BunkerHP;

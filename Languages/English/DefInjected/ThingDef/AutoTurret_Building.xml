@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <AutoTurret.label>Auto-Turret</AutoTurret.label>
   <AutoTurret.description>An airborne automatic turret for fixed-point defense, it can be deployed repeatedly after installing the SRTS engine. This turret itself is fragile and needs to be used flexibly.</AutoTurret.description>
