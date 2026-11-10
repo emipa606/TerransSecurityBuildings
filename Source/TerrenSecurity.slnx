@@ -3,4 +3,47 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="TerrenSecurity/TerrenSecurity.csproj" />
+  <Folder Name="/.github/">
+    <File Path="../.github/copilot-instructions.md" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/TurrectDefs/">
+    <File Path="../1.7/Defs/TurrectDefs/AutoTurret_TurretTop.xml" />
+    <File Path="../1.7/Defs/TurrectDefs/PlanetaryFortress_TurretTop.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/Bunker.xml" />
+    <File Path="../Languages/English/Keyed/Settings.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/JobDefs/">
+    <File Path="../1.7/Defs/JobDefs/Jobs_Misc.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/SoundDefs/">
+    <File Path="../1.7/Defs/SoundDefs/Turrets.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/BuidlingDefs/">
+    <File Path="../1.7/Defs/BuidlingDefs/AutoTurret_Building.xml" />
+    <File Path="../1.7/Defs/BuidlingDefs/Bunker_Building.xml" />
+    <File Path="../1.7/Defs/BuidlingDefs/PlanetaryFortress_Building.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThoughtDefs/">
+    <File Path="../1.7/Defs/ThoughtDefs/ThoughtDefs.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs/">
+    <File Path="../1.7/Defs/ThingDefs/Items_Gas.xml" />
+  </Folder>
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Patches/">
+    <File Path="../1.7/Patches/Patches_AutoTurret_SOS2.xml" />
+    <File Path="../1.7/Patches/Patches_AutoTurret_SRTS.xml" />
+    <File Path="../1.7/Patches/Patches_PlanetaryFortress_SOS2.xml" />
+    <File Path="../1.7/Patches/Patches_PlanetaryFortress_SRTS.xml" />
+    <File Path="../1.7/Patches/Patches_SRTS_Misc.xml" />
+    <File Path="../1.7/Patches/Patches_SRTS_Research.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ResearchDefs/">
+    <File Path="../1.7/Defs/ResearchDefs/Research_Project.xml" />
+    <File Path="../1.7/Defs/ResearchDefs/ResearchTabs.xml" />
+  </Folder>
 </Solution>

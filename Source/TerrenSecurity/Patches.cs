@@ -3,7 +3,7 @@ using Verse;
 
 namespace TerrenSecurity;
 
-internal class Patches
+internal static class Patches
 {
     public static void GameEnder_CheckOrUpdateGameOver(GameEnder __instance)
     {

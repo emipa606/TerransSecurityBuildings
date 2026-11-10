@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace TerrenSecurity;
@@ -19,12 +20,10 @@ public class Verb_TerranBunker : Verb_Shoot
     {
         bunker ??= (Building_TerranBunker)caster;
 
-        foreach (var item in bunker.GetInner().InnerListForReading)
+        foreach (var item in bunker.GetInner().InnerListForReading
+                     .Where(i => i.TryGetAttackVerb(currentTarget.Thing) != null))
         {
-            if (item.TryGetAttackVerb(currentTarget.Thing) != null)
-            {
-                item.TryGetAttackVerb(currentTarget.Thing).caster = item;
-            }
+            item.TryGetAttackVerb(currentTarget.Thing).caster = item;
         }
     }
 
@@ -33,12 +32,10 @@ public class Verb_TerranBunker : Verb_Shoot
         verbss = [];
         bunker ??= (Building_TerranBunker)caster;
 
-        foreach (var item in bunker.GetInner().InnerListForReading)
+        foreach (var item in bunker.GetInner().InnerListForReading
+                     .Where(i => i.TryGetAttackVerb(currentTarget.Thing) != null))
         {
-            if (item.TryGetAttackVerb(currentTarget.Thing) != null)
-            {
-                verbss.Add(item.TryGetAttackVerb(currentTarget.Thing));
-            }
+            verbss.Add(item.TryGetAttackVerb(currentTarget.Thing));
         }
 
         foreach (var item2 in verbss)

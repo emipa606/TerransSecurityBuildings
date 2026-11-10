@@ -1,0 +1,27 @@
+Sounds/Turrets/IbiksCannonAttack.ogg raw
+Sounds/Turrets/IbiksCannonExplode.ogg raw
+Sounds/Turrets/MultipleBulletAttack.ogg raw
+Sounds/Turrets/Shrike.ogg raw
+Textures/Things/Building/AutoTurret/AutoTurret.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/AutoTurretUI.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/Hover/AutoTurretHover _east.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/Hover/AutoTurretHoverIncoming.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/Hover/AutoTurretHoverLeaving.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/Hover/AutoTurretHoverPack.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/Hover/AutoTurretHover_north.png.dds.split image:Default
+Textures/Things/Building/AutoTurret/Hover/AutoTurretHover_south.png.dds.split image:Default
+Textures/Things/Building/Bunker/Bunker.png.dds.split image:Default
+Textures/Things/Building/Bunker/EmptyBaby.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHoverIncoming.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHoverLeaving.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHoverPack.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHover_east.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHover_north.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/Hover/PlanetaryFortressHover_south.png.dds.split image:Default
+Textures/Things/Building/PlanetaryFortress/PlanetaryFortress.png.dds.split image:Default
+Textures/Things/Building/Refinery/ChemGasRefinery.png.dds.split image:Default
+Textures/Things/Building/Turret/AutoTurret_Turret_Top.png.dds.split image:Default
+Textures/Things/Building/Turret/Invis.png.dds.split image:Default
+Textures/Things/Building/Turret/PlanetaryFortress_Turret_Top.png.dds.split image:Default
+Textures/Things/Projectile/PlanetaryFortress_Turret_Top_Bomb.png.dds.split image:Default
+Textures/Things/Resource/ChemGas.png.dds.split image:Default
